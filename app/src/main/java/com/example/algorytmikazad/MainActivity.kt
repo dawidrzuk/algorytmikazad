@@ -19,5 +19,16 @@ class MainActivity : AppCompatActivity() {
         val wzorzec = findViewById<EditText>(R.id.editTextTextPersonName)
         val dlugosc = findViewById<EditText>(R.id.editTextTextPersonName2)
 
+        fun losowanietekstu(): String {
+            val charPool: List<Char> = ('a'..'z') + ('A'..'Z') + ('0'..'9')
+            val outputStrLength = (1..dlugosc).shuffled().first()
+
+            return (1..dlugosc)
+                .map{ kotlin.random.Random.nextInt(0, charPool.size) }
+                .map(charPool::get)
+                .joinToString("")
+        }
+
+
     }
 }
